@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Social links profile</title>
+
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      overflow-x: hidden;
+    }
+    .wrapper{
+      height: 100vh;
+      width: 100vw;
+      background-color: hsl(0, 0%, 8%);
+      padding-top: 90px;
+    }
+    .card{
+      height: 500px;
+      width: 340px;
+      margin: 0 auto;
+      border-radius: 15px;
+      color: white;
+      background-color: hsl(0, 0%, 12%);
+    }
+    .image{
+      height: 80px;
+      width: 80px;
+      border-radius: 50%;
+      margin-left: 50%;
+      transform: translateX(-50%);
+      margin-top: 20px;
+    }
+    .name{
+      font-size: 1.4rem;
+      font-family: sans-serif;
+      color: hsl(75, 94%, 57%);
+      text-align: center;
+      margin-top: 15px;
+      font-weight: 700;
+    }
+    .location{
+      text-align: center;
+      margin-top: 5px;
+      font-weight: 600;
+    }
+    .desc{
+      text-align: center;
+      margin-top: 15px;
+      font-weight: 400;
+    }
+    .links{
+      margin-top: 50px;
+      padding-inline: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .github, .mentor, .linkedin, .twitter, .insta{
+      text-align: center;
+      border-radius: 10px;
+      padding: 10px;
+      background-color: hsl(0, 0%, 20%);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <div class="card">
+      <div class="">
+        <img src="./assets/images/avatar-jessica.jpeg" alt="" class="image">
+      </div>
+      <div class="name">Jessica Randall</div>
+      <div class="location">London, United Kingdom</div>
+      <div class="desc">Front-end developer and avid reader.</div>
+
+      <div class="links">
+        <div class="github">
+          GitHub
+        </div>
+        <div class="mentor">
+          Frontend Mentor
+        </div>
+        <div class="linkedin">
+          LinkedIn
+        </div>
+        <div class="twitter">
+          Twitter
+        </div>
+        <div class="insta">
+          Instagram
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- Jessica Randall
+    London, United Kingdom
+    "Front-end developer and avid reader."
+
+    GitHub
+    Frontend Mentor
+    LinkedIn
+    Twitter
+    Instagram -->
+  
+  
+    <script src="app.js"></script>
+</body>
+</html>
