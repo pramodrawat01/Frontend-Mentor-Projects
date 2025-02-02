@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
+  <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"/>
   <title>Social links profile</title>
 
   <style>
@@ -14,6 +16,10 @@
       padding: 0;
       box-sizing: border-box;
       overflow-x: hidden;
+      text-decoration: none;
+    }
+    a{
+      color: white;
     }
     .wrapper{
       height: 100vh;
@@ -22,6 +28,7 @@
       padding-top: 90px;
     }
     .card{
+      position: relative;
       height: 500px;
       width: 340px;
       margin: 0 auto;
@@ -67,6 +74,28 @@
       border-radius: 10px;
       padding: 10px;
       background-color: hsl(0, 0%, 20%);
+
+      
+    }
+    .github:hover, .mentor:hover, .linkedin:hover, .twitter:hover, .insta:hover{
+      background-color: hsl(75, 94%, 57%);
+      color: black;
+    }
+    #share-card{
+      position: absolute;
+      right:25px;
+      top: 20px;
+      font-size: 1.3rem;
+      background-color: rgb(41, 41, 41);
+      padding: 4px;
+      border-radius: 50%;
+      transition: transform 0.3s;
+     
+    }
+    #share-card:hover{
+      cursor: pointer;
+      transform: scale(1.2);
+      background-color: rgb(50,50,50);
     }
   </style>
 </head>
@@ -74,6 +103,7 @@
 
   <div class="wrapper">
     <div class="card">
+      <i class="ri-share-forward-fill" id="share-card"></i>
       <div class="">
         <img src="./assets/images/avatar-jessica.jpeg" alt="" class="image">
       </div>
@@ -82,36 +112,24 @@
       <div class="desc">Front-end developer and avid reader.</div>
 
       <div class="links">
-        <div class="github">
+        <a href="" class="github">
           GitHub
-        </div>
-        <div class="mentor">
+        </a>
+        <a href="" class="mentor">
           Frontend Mentor
-        </div>
-        <div class="linkedin">
+        </a>
+        <a href="" class="linkedin">
           LinkedIn
-        </div>
-        <div class="twitter">
+        </a>
+        <a href="" class="twitter">
           Twitter
-        </div>
-        <div class="insta">
+        </a>
+        <a href="" class="insta">
           Instagram
-        </div>
-        <div>
-          Facebook
-        </div>
+        </a>
       </div>
     </div>
   </div>
-    <!-- Jessica Randall
-    London, United Kingdom
-    "Front-end developer and avid reader."
-
-    GitHub
-    Frontend Mentor
-    LinkedIn
-    Twitter
-    Instagram -->
   
   
     <script src="app.js"></script>
