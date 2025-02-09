@@ -26,6 +26,7 @@
       width: 100vw;
       background-color: hsl(0, 0%, 8%);
       padding-top: 90px;
+      position: relative;
     }
     .card{
       position: relative;
@@ -89,19 +90,108 @@
       background-color: rgb(41, 41, 41);
       padding: 4px;
       border-radius: 50%;
-      transition: transform 0.3s;
+      transition: transform 0.4s;
      
     }
     #share-card:hover{
       cursor: pointer;
       transform: scale(1.2);
-      background-color: rgb(50,50,50);
+      background-color: white;
+      color: black;
+    }
+
+    .share-screen{
+      position: absolute;
+      top: 0;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+    .share-card{
+      height: 300px;
+      width: 330px;
+      border-radius: 15px;
+      background-color: rgb(45, 45, 45);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .whatsapp{
+      color: black;
+      font-size: 3rem;
+      color: white;
+
+      &:hover{
+        cursor: pointer;
+      }
+    }
+    .close-screen{
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 2rem;
+      background-color: rgb(91, 176, 251);
+      padding:5px;
+      border-radius: 50%;
+
+      &:hover{
+        cursor: pointer;
+      }
+    }
+    .index{
+      z-index: 1;
+    }
+    #profile-link{
+      display: none;
     }
   </style>
 </head>
 <body>
 
   <div class="wrapper">
+
+    <!-- share screen -->
+    <div class="share-screen">
+      <div class="share-card">
+        <div>
+          <i class="ri-whatsapp-line whatsapp"></i>
+          <div>Whatsapp</div>
+        </div>
+        <div>
+          <i class="ri-whatsapp-line whatsapp"></i>
+          <div>Whatsapp</div>
+        </div>
+        <div>
+          <i class="ri-whatsapp-line whatsapp"></i>
+          <div>Whatsapp</div>
+        </div>
+        <div>
+          <i class="ri-whatsapp-line whatsapp"></i>
+          <div>Whatsapp</div>
+        </div>
+        <div>
+          <i class="ri-whatsapp-line whatsapp"></i>
+          <div>Whatsapp</div>
+        </div>
+        <div>
+          <i class="ri-whatsapp-line whatsapp"></i>
+          <div>Whatsapp</div>
+        </div>
+        <i class="ri-close-fill close-screen"></i>
+      </div>
+
+      <span id="profile-link">http://127.0.0.1:5500/social_links_profile/index.html</span>
+
+    </div>
+
     <div class="card">
       <i class="ri-share-forward-fill" id="share-card"></i>
       <div class="">
@@ -129,7 +219,13 @@
         </a>
       </div>
     </div>
+
+
+    
+
   </div>
+
+  
   
   
     <script src="app.js"></script>
