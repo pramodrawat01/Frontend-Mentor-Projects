@@ -23,7 +23,11 @@ whatsapp.addEventListener('click',()=>{
     console.log("whatsapp btn clicked")
 })
 
+
+
+
 const addbtn = document.querySelector('.addNew')
+
 addbtn.addEventListener( 'click', () => {
    
     const name = document.createElement("input")
@@ -39,28 +43,55 @@ addbtn.addEventListener( 'click', () => {
     submit.textContent = "Add new one"
 
 
-    function handleInputs(event){
-        console.log(event.target.placeholder + ":", event.target.value);
+    // storing the input values
+    const inputValues = {
+        inputName : '',
+        inputLink : ''
     }
 
+
+    // add input vlaues to inputValues object
+    function handleInputs(event){
+        if (event.target === name) {
+            inputValues.inputName = event.target.value;
+        } else if (event.target === link) {
+            inputValues.inputLink = event.target.value;
+        }
+    }
+
+    // handling the input 
     [name, link].forEach( (input)=>{
         input.addEventListener('input', handleInputs)
     })
-   
-    // name.addEventListener('input', ()=>{
-        
-    //     submit.addEventListener('click', ()=>{
-    //         console.log(name.value)
-    //     })
-    // })
+
+    // sumbit 
+    submit.addEventListener('click', ()=>{
+        if(!inputValues.inputName || !inputValues.inputLink){
+            console.error("Both fields must be filled!")
+            return
+        }
+
+        const anchor = document.createElement('a')
+        anchor.textContent = inputValues.inputName
+        anchor.href = inputValues.inputLink;
+        anchor.target = "_blank"
+
+        // append 
+        document.querySelector('.insta').insertAdjacentElement('afterend', anchor)
+
+        console.log(anchor.textContent)
+
+        name.value = ""
+        link.value = ""
+
+        name.style.display = "none"
+        link.style.display = "none"
+        submit.style.display = "none"
+
+
+    }, {once: true})
+
 
 
 })
 
-
-// addbtn.addEventListener( 'click', ( ) => {
-//     // const btn = document.createElement('button')
-//     // btn.textContent = "new btn added"
-//     // document.body.appendChild(btn)
-//     console.log("btn added")
-// })
