@@ -9,150 +9,8 @@
     href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
     rel="stylesheet"/>
   <title>Social links profile</title>
+  <link rel="stylesheet" href="app.css">
 
-  <style>
-    *{
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      overflow-x: hidden;
-      text-decoration: none;
-    }
-    a{
-      color: white;
-    }
-    .wrapper{
-      height: 100vh;
-      width: 100vw;
-      background-color: hsl(0, 0%, 8%);
-      padding-top: 90px;
-      position: relative;
-    }
-    .card{
-      position: relative;
-      height: 500px;
-      width: 340px;
-      margin: 0 auto;
-      border-radius: 15px;
-      color: white;
-      background-color: hsl(0, 0%, 12%);
-    }
-    .image{
-      height: 80px;
-      width: 80px;
-      border-radius: 50%;
-      margin-left: 50%;
-      transform: translateX(-50%);
-      margin-top: 20px;
-    }
-    .name{
-      font-size: 1.4rem;
-      font-family: sans-serif;
-      color: hsl(75, 94%, 57%);
-      text-align: center;
-      margin-top: 15px;
-      font-weight: 700;
-    }
-    .location{
-      text-align: center;
-      margin-top: 5px;
-      font-weight: 600;
-    }
-    .desc{
-      text-align: center;
-      margin-top: 15px;
-      font-weight: 400;
-    }
-    .links{
-      margin-top: 50px;
-      padding-inline: 40px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .github, .mentor, .linkedin, .twitter, .insta{
-      text-align: center;
-      border-radius: 10px;
-      padding: 10px;
-      background-color: hsl(0, 0%, 20%);
-
-      
-    }
-    .github:hover, .mentor:hover, .linkedin:hover, .twitter:hover, .insta:hover{
-      background-color: hsl(75, 94%, 57%);
-      color: black;
-    }
-    #share-card{
-      position: absolute;
-      right:25px;
-      top: 20px;
-      font-size: 1.3rem;
-      background-color: rgb(41, 41, 41);
-      padding: 4px;
-      border-radius: 50%;
-      transition: transform 0.4s;
-     
-    }
-    #share-card:hover{
-      cursor: pointer;
-      transform: scale(1.2);
-      background-color: white;
-      color: black;
-    }
-
-    .share-screen{
-      position: absolute;
-      top: 0;
-      height: 100vh;
-      width: 100vw;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: rgba(0, 0, 0, 0.6);
-      z-index: -1;
-    }
-    .share-card{
-      height: 300px;
-      width: 330px;
-      border-radius: 15px;
-      background-color: rgb(45, 45, 45);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      flex-wrap: wrap;
-      gap: 30px;
-    }
-
-    .social-icons{
-      color: black;
-      font-size: 3rem;
-      color: white;
-
-      &:hover{
-        cursor: pointer;
-      }
-    }
-    .close-screen{
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 2rem;
-      background-color: rgb(91, 176, 251);
-      padding:5px;
-      border-radius: 50%;
-
-      &:hover{
-        cursor: pointer;
-      }
-    }
-    .index{
-      z-index: 1;
-    }
-    #profile-link{
-      display: none;
-    }
-  </style>
 </head>
 <body>
 
@@ -161,7 +19,7 @@
     <!-- share screen -->
     <div class="share-screen">
       <div class="share-card">
-        <a href="">
+        <a href="https://web.whatsapp.com/" target="_blank">
           <i class="ri-whatsapp-line social-icons"></i>
           <div>Whatsapp</div>
         </a>
@@ -188,7 +46,7 @@
         <i class="ri-close-fill close-screen"></i>
       </div>
 
-      <span id="profile-link">http://127.0.0.1:5500/social_links_profile/index.html</span>
+      <!-- <span id="profile-link">https://web.whatsapp.com/</span> -->
 
     </div>
 
@@ -200,6 +58,10 @@
       <div class="name">Jessica Randall</div>
       <div class="location">London, United Kingdom</div>
       <div class="desc">Front-end developer and avid reader.</div>
+
+
+      <button class="addNew">add new profile</button>
+      
 
       <div class="links">
         <a href="" class="github">
