@@ -28,70 +28,85 @@ whatsapp.addEventListener('click',()=>{
 
 const addbtn = document.querySelector('.addNew')
 
+
 addbtn.addEventListener( 'click', () => {
-   
-    const name = document.createElement("input")
-    name.placeholder = "enter name here"
-    const link = document.createElement("input")
-    link.placeholder = "enter link of profile here"
+    let name = document.querySelector('.name-class');
+    let link = document.querySelector('.link-class');
 
-    const submit = document.createElement('button')
+    if(!name && !link){
 
-    addbtn.insertAdjacentElement("afterend", name)
-    name.insertAdjacentElement("afterend", link)
-    link.insertAdjacentElement('afterend', submit)
-    submit.textContent = "Add new one"
+        name = document.createElement("input")
+        name.placeholder = "enter name here"
+        name.classList.add('name-class')
 
 
-    // storing the input values
-    const inputValues = {
-        inputName : '',
-        inputLink : ''
-    }
+        link = document.createElement("input")
+        link.placeholder = "enter link of profile here"
+        link.classList.add('link-class')
 
+        const submit = document.createElement('button')
+        submit.textContent = "Add new one"
 
-    // add input vlaues to inputValues object
-    function handleInputs(event){
-        if (event.target === name) {
-            inputValues.inputName = event.target.value;
-        } else if (event.target === link) {
-            inputValues.inputLink = event.target.value;
-        }
-    }
+        // insert element in dom
+        addbtn.insertAdjacentElement("afterend", name)
+        name.insertAdjacentElement("afterend", link)
+        link.insertAdjacentElement('afterend', submit)
+        
 
-    // handling the input 
-    [name, link].forEach( (input)=>{
-        input.addEventListener('input', handleInputs)
-    })
-
-    // sumbit 
-    submit.addEventListener('click', ()=>{
-        if(!inputValues.inputName || !inputValues.inputLink){
-            console.error("Both fields must be filled!")
-            return
+        // storing the input values
+        const inputValues = {
+            inputName : '',
+            inputLink : ''
         }
 
-        const anchor = document.createElement('a')
-        anchor.textContent = inputValues.inputName
-        anchor.href = inputValues.inputLink;
-        anchor.target = "_blank"
 
-        // append 
-        document.querySelector('.insta').insertAdjacentElement('afterend', anchor)
+        // add input vlaues to inputValues object
+        function handleInputs(event){
+            if (event.target === name) {
+                inputValues.inputName = event.target.value;
+            } else if (event.target === link) {
+                inputValues.inputLink = event.target.value;
+            }
+        }
 
-        console.log(anchor.textContent)
+        // handling the input 
+        [name, link].forEach( (input)=>{
+            input.addEventListener('input', handleInputs)
+        })
 
-        name.value = ""
-        link.value = ""
-
-        name.style.display = "none"
-        link.style.display = "none"
-        submit.style.display = "none"
-
-
-    }, {once: true})
+        // sumbit 
+        submit.addEventListener('click', ()=>{
+            if(!inputValues.inputName || !inputValues.inputLink){
+                console.error("Both fields must be filled!")
+                return
+            }
 
 
+            const anchor = document.createElement('a')
+            anchor.textContent = inputValues.inputName
+            anchor.href = inputValues.inputLink;
+            anchor.target = "_blank"
 
+            // append 
+            document.querySelector('.insta').insertAdjacentElement('afterend', anchor)
+
+            console.log(anchor.textContent)
+
+            name.value = ""
+            link.value = ""
+            
+            
+            // remove inputs 
+            name.remove()
+            link.remove()
+            submit.remove()
+
+
+        }, {once: true})
+    }
+    else{
+        alert("add this profile first then create new one")
+    }
+    
 })
 
