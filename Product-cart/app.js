@@ -81,14 +81,23 @@ const addToCart =(product_id)=>{
     //console.log(carts)
     // display cart in webpage by calling this fun
     addCartToHTML()
+    // save the data to memorey or local storage
+    addCartToMemory()
+}
+
+const addCartToMemory = ()=>{
+    localStorage.setItem('cart', JSON.stringify(carts))
 }
 
 const addCartToHTML = ()=>{
     listCartHTML.innerHTML = ''
+    let totalQuentity = 0
     if(carts.length > 0){
         carts.forEach( (cart) =>{
+            totalQuentity += cart.quentity
             let newCart = document.createElement('div')
             newCart.classList.add('item')
+            newCart.dataset.id = cart.product_id
             
             let productIndex = productList.findIndex( (value) => value.id == cart.product_id)
             let info = productList[productIndex]
@@ -101,7 +110,7 @@ const addCartToHTML = ()=>{
                     ${info.name}
                 </div>
                 <div class="totalPrice">
-                   ${info.price}
+                   ${info.price * cart.quentity}
                 </div>
                 <div class="quentity">
                     <span class="minus">-</span>
@@ -112,6 +121,42 @@ const addCartToHTML = ()=>{
             listCartHTML.appendChild(newCart)
         })
     }
+    itemCount.textContent = totalQuentity
+}
+
+//  increse or decrese items in cart
+listCartHTML.addEventListener('click', (event)=>{
+    let positionClick = event.target
+    if(positionClick.classList.contains('minus')  || positionClick.classList.contains('plus')){
+        let product_id = positionClick.parentElement.parentElement.dataset.id
+        let type = 'munus'
+        if(positionClick.classList.contains('plus')){
+            type = 'plus'
+        }
+        changeQuantity(product_id, type)
+    }
+})
+
+const changeQuantity = (product_id, type)=>{
+    let positionItemInCart = carts.findIndex((value)=>value.product_id == product_id)
+    if(positionItemInCart >= 0){
+       switch (type) {
+        case 'plus':
+            carts[positionItemInCart].quentity += 1
+            break;
+       
+        default:
+            let valueChange = carts[positionItemInCart].quentity -1
+            if(valueChange > 0){
+                carts[positionItemInCart].quentity = valueChange
+            }else{
+                carts.splice(positionItemInCart, 1)
+            }
+            break;
+       }
+    }
+    addCartToMemory()
+    addCartToHTML()
 }
 
 
@@ -122,7 +167,14 @@ const initApp = ()=>{
     .then(data => {
         productList = data
         addDataToHTML()
-        console.log(productList)
+
+        // get carts from memory / local storage
+        if(localStorage.getItem('cart')){
+            // JSON.parse convert the stringfy data into array
+            carts = JSON.parse(localStorage.getItem('cart'));
+            addCartToHTML()
+        }
+        
     })
 }
 

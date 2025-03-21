@@ -9,7 +9,6 @@ body{
     width: 900px;
     max-width: 90vw;
     margin: auto;
-    border: 1px solid black;
     text-align: center;
     padding-top: 10px;
     transition: transform 0.5s;
@@ -24,6 +23,7 @@ header{
 }
 header .cart-icon {
     position: relative;
+    cursor: pointer;
 }
 header .cart-icon .icon{
     font-size: 1.5rem;
@@ -155,4 +155,17 @@ body.showCart .container{
 
 .listCart::-webkit-scrollbar{
     width: 0;
+}
+
+
+@media screen and (max-width : 992px) {
+    .productList{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width : 522px) {
+    .productList{
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
